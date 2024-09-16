@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: pocket-js-server                      #(nome projeto)
 
 services:                                    # (declarando serviços)
@@ -10,4 +11,18 @@ services:                                    # (declarando serviços)
      - POSTGRES_PASSWORD=docker
      - POSTGRES_DB=inorbit
 
+=======
+name: pocket-js-server                      #(nome projeto)
+
+services:                                    # (declarando serviços)
+  pg:                                          # (primeiro serviço - postgre)
+    image: bitnami/postgresql: 13.16.0           #(selecao da imagem a utilizar)
+    ports:                                
+     - '5432:5432'                       #(redirecionamento de portas do container p maquina)
+    enviroment:                               #  (variavel ambiente/credenciais)
+     - POSTGRES_USER=docker 
+     - POSTGRES_PASSWORD=docker
+     - POSTGRES_DB=inorbit
+
+>>>>>>> ba292d0b03ff2d76d8f45433aa4ddf05695f846b
                                               #no terminal docker compose up -d (para rodar bd)
