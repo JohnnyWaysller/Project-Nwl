@@ -6,7 +6,6 @@ import dayjs from 'dayjs'
 interface CreateGoalCompletionRequest {
   goalId: string
 }
-
 export async function CreateGoalCompletion({
   goalId,
 }: CreateGoalCompletionRequest) {
@@ -16,6 +15,7 @@ export async function CreateGoalCompletion({
   const goalCompletionCounts = db.$with('goal_completion_counts').as(
     db
       .select({
+        
         goalId: goalCompletions.goalId,
         completionCount: count(goalCompletions.id).as('completionCount'),
       })
