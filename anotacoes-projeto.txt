@@ -1,0 +1,60 @@
+1 - iniciado projeto: npm init -y
+2 - instalado typescript:  npm i typescript -D
+3 - criado arquivo tsconfig.json: npx tsc --init
+        Em node bases foi pego configuracoes e colado em tsconfig.json node 20
+
+4 - instalado biblioteca node+type+tsx: npm i @types/node tsx -D (tsx permite executar projeto sem converter p JS)
+5 - configurado script em package.json: "dev": "tsx src/http/server.ts" 
+6 - executar codigo: npm run dev 
+7 - configurado watch: "dev": "tsx watch src/http/server.ts" (watch vigia mudanças)
+8 - instalando fastify: npm i fastify (framework)
+9 - instalando biome: npm i -D --save-exact @biomejs/biome (Formata Código)
+    configurando biome em biome.json (configuracoes personalizadas)
+10 - Ctrl + shift + p (Preferences workSpace) (configurar preferencias apenas p esse projeto) (arquivo settings.json)
+11- instalando docker para banco de dados Postgresql (sem sucesso) Obitido url postgres em neon console
+12 - Criacao de arquivo(docker-compose.yml)
+13 - configuracao do arquivo(docker-compose.yml) MANUAL EM txt
+
+14 -apos configuracoes no terminal foi executado:
+    #no terminal docker compose up -d (para rodar bd)
+        com BD Rodando:
+    intalar ferramenta Drizzle # comando: npm i drizzle-orm
+    instalado Drizze KIT # npm i drizzle-kit -D
+
+15 - para uso do Drizze é configurado arquivo (drizzle.config.ts)
+16 - configurado arquivo .Env para credenciais variavel de ambiente para url
+17 - especificar em package.json configuracao #--env-file .env
+18 - em drizzle.config.ts especificar em url: url: process.env.DATABASE_URL,
+19 - instalar biblioteca ZOD para validacao de dados: npm i zod
+20 - criado arquivo env.ts para configurar url da variavel de ambiente e exportar, e importar para drizzle.config.ts
+
+21 - criado pasta db e arquivo schema.ts // para declarar quais tabelas e colunas teremos no BD
+22 - em drizzle.config.ts especificar onde esta esse arquivo a cima no passo 21 ./src/db/schema.ts.
+23 - criar dentro do schema uma tabela (confgurar importacoes e exportacoes)
+24 - executar: npx drizzle-kit generate (cria arquivo sql que possui instrucao para criacao da tabela no BD)
+25- se executar: npx drizzle-kit migrate (ele roda migrate (gera erro, pois para se conectar com bd precisa instalar alguma biblioteca (drive)))
+26 - instalando postgres no projeto: npm i postgres 
+27- agora tenta executar migrate novamente: npx drizzle-kit migrate
+28 - agora criado a tabela, para visualizar: npx drizzle-kit studio
+29 - abre interface para navegar no BD
+
+30 - resumindo: npx drizzle-kit generate (cria instrucao na pasta migrate), npx drizzle-kit migrate (salva as tabelas no bd)
+
+31 - instalando biblioteca: npm i @paralleldrive/cuid2 (algoritimos de geracao de id unico) e adicionado metodo
+.$defaultFn(()=> createId()) nas tabelas
+
+32 - criando arquivo seed.ts para ajudar popular o BD
+
+33 - criando arquivo de conexao com BD (index.ts) em DB e importando nele dizzle,postgres, schema. exporta variaveis.
+
+34 - importando variaveis em seed e inserindo informacoes nas tabelas.
+
+35 - configurando seed em package.json para executar terminal
+
+36 - instalado lib de datas dayjs para configurar codigo em seed.ts
+
+37 - criando pasta functions para funcionalidades, criando arquivo create-goal.ts
+
+38 - rodando servidor com npm run server, configuranto Postman para testar requisicao
+
+39 - instalando pluggin: npm i fastify-type-provider-zod
